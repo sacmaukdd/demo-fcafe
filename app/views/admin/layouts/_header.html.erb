@@ -4,7 +4,7 @@
       <ul class="nav-horizontal text-center">
         <li class="active">
           <%= link_to admin_shop_types_path do %>
-            <i class="fa fa-bar-chart"></i><%= t "shop_types" %>
+            <i class="fa fa-bar-chart"></i><%= t ".shop_types" %>
           <% end %>
         </li>
         <li>
@@ -13,16 +13,16 @@
           <% end %>
         </li>
         <li>
-          <a href="page_ecom_order_view.html">
+          <%= link_to "#" do %>
             <i class="gi gi-shopping_cart"></i>
             <%= t "shop" %>
-          </a>
+          <% end %>
         </li>
         <li>
-          <a href="page_ecom_products.html">
+          <%= link_to "#" do %>
             <i class="gi gi-shopping_bag"></i>
             <%= t "product" %>
-          </a>
+          <% end %>
         </li>
       </ul>
     </div>

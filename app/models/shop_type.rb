@@ -3,7 +3,7 @@ class ShopType < ApplicationRecord
 
   has_many :shops
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
   scope :order_date_desc, -> {order created_at: :desc}
 end

@@ -23,12 +23,17 @@ en:
   category1: "Category 1"
   category2: "Category 2"
   category3: "Category 3"
+  shop_types:
+    show:
+      shop_type_not_found: "Shop type not found"
   layouts:
     header:
       signup: "Sign up"
       loggin: "Log in"
       contact: "Contact"
       about: "About"
+      request_shop: "Request shop"
+      suggestion: "Suggestion product"
     shop_owner_layout:
       statistic: "Statistic"
   shared:
@@ -71,7 +76,7 @@ en:
   edit_shop_type: "Edit shop type"
   sure: "Are you sure ?"
   shop_type_exist: "Shop type exist"
-  all_shops: "All Shops"
+  all_shop_requet: "All shop request"
   name: "Name"
   address: "Address"
   description: "Description"
@@ -122,6 +127,10 @@ en:
       unavailable: "Unavailable"
       order: "Order"
   admin:
+    shop_types:
+      index:
+        shop_types: "Shop Types"
+        overview: "Overview"
     layouts:
       left_bar:
         username: "Username"
@@ -133,8 +142,10 @@ en:
         requests: "Requests"
         categories: "Categories"
         overview: " Overview"
+        users: "Users"
       header:
         requests: "Requests"
+        shop_types: "Shop Types"
     staticpages:
       dashboard: "Dashboard"
       product: "Product"
@@ -205,6 +216,39 @@ en:
         action: "Action"
         album_images: "Album Images"
         albums: "Albums"
+      update:
+        update_success: "%{status} complete"
+    users:
+      index:
+        users: "All Users"
+        index: "Index"
+        avatar: "Avatar"
+        name: "User name"
+        email: "Email"
+        phone_number: "Phone number"
+        address: "Address"
+        role: "Role"
+        action: "Action"
+      show:
+        user_detail: "User detail"
+        overview: "Overview"
+        user_name: "User name"
+        email: "Email"
+        phone_number: "Phone number"
+        address: "Address"
+        role: "Role"
+        cancel: "Cancel"
+      user:
+        delete_confirm: "The '%{name}' will be deleted. Are you sure to continue"
+        delete: "Delete"
+        set_user: "Set user"
+        set_mod: "Set mod"
+      update:
+        update_success: "Set %{role} role successful"
+        update_error: "Set %{role} role unsuccessful"
+      destroy:
+        destroy_success: "Deleted successful"
+        destroy_error: "Deleted unsuccessful"
   shop_owner:
     albums:
       create:

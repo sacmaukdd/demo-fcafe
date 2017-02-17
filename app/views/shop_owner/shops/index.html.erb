@@ -1,38 +1,33 @@
 <table class="table table-vcenter table-striped">
-  <tr>
-    <th><%= t ".name" %></th>
-    <th><%= t ".address" %></th>
-    <th><%= t ".description" %></th>
-    <th><%= t ".shop_type" %></th>
-    <th><%= t ".album_images" %></th>
-    <th colspan="2"><%= t "action" %></th>
+  <tr class="display-shop">
+    <th class="text-center name"><%= t ".name" %></th>
+    <th class="text-center"><%= t ".address" %></th>
+    <th class="text-center"><%= t ".description" %></th>
+    <th class="text-center"><%= t ".shop_type" %></th>
+    <th class="text-center"><%= t ".album_images" %></th>
+    <th class="text-center action"><%= t "action" %></th>
   </tr>
   <% @shops.each do |shop| %>
-    <tr>
-      <td>
-        <div class="center">
-          <strong><%= link_to shop.name, "#" %></strong>
-        </div>
+    <tr class="display-shop">
+      <td class="text-center name">
+        <div class="center"><strong><%= shop.name %></strong></div>
         <div class="clr"></div>
         <div class="avatar-shop">
-          <%= image_tag shop.avatar %>
+          <%= image_tag shop.avatar.url, size: Settings.images.image_small_size %>
         </div>
       </td>
       <td><%= shop.address %></td>
       <td><%= shop.description.html_safe %></td>
-      <td><%= shop.shop_type_name %></td>
-      <td><%= link_to t(".albums"), shop_owner_albums_path(id: shop.id) %>
+      <td class="text-center"><%= shop.shop_type_name %></td>
+      <td class="text-center">
+        <%= link_to t(".albums"), shop_owner_albums_path(id: shop.id) %>
       </td>
-      <td>
-        <div class="btn-group btn-group-xs">
-          <%= link_to edit_shop_path(shop),
-            class: "btn btn-default" do %>
-            <i class="fa fa-pencil"><%= t "edit" %></i>
-          <% end %>
-        </div>
-      </td>
-      <td>
-        <%= link_to shop_path(shop), method: :delete,
+      <td class="text-center action">
+        <%= link_to edit_shop_owner_shop_path(shop),
+          class: "btn btn-default" do %>
+          <i class="fa fa-pencil"><%= t "edit" %></i>
+        <% end %>
+        <%= link_to shop_owner_shop_path(shop), method: :delete,
           data: {confirm: t("sure")}, class: "btn btn-danger" do %>
           <i class="fa fa-times"><%= t "cancel" %></i>
         <% end %>
@@ -40,4 +35,6 @@
     </tr>
   <% end %>
 </table>
-<%= will_paginate %>
+<div class="text-center">
+  <%= will_paginate %>
+</div>

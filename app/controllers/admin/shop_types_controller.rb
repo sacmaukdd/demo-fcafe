@@ -9,11 +9,14 @@ class Admin::ShopTypesController < ApplicationController
   end
 
   def create
-    @shop_type = ShopType.find_or_create_by shop_type_params
-    if @shop_type.persisted?
-      flash[:danger] = t "shop_type_exist"
-    else
+    was_created = false
+    @shop_type = ShopType.find_or_create_by shop_type_params do
+      was_created = true
+    end
+    if was_created
       flash[:success] = t "create_complete"
+    else
+      flash[:danger] = t "shop_type_exist"
     end
     redirect_to :back
   end

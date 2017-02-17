@@ -15,6 +15,7 @@ class Ability
         account.mod?
       end
     elsif user.shop_owner?
+      can :read, :all
       can :manage, Category do |category|
         !category.shop_id.blank? && category.shop.user == user
       end
@@ -24,7 +25,8 @@ class Ability
       end
       can :create, Shop
     elsif user.staff?
-
+      can :read, :all
+      can :manage, Product
     else
       can :read, :all
       can :manage, Shop do |shop|

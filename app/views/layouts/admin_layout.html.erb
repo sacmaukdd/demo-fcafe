@@ -10,7 +10,7 @@
   </head>
   <body>
     <div id="page-wrapper">
-      <div id="page-container" class="sidebar-partial sidebar-visible-lg
+      <div id="page-container page-content" class="sidebar-partial sidebar-visible-lg
         sidebar-no-animations">
         <%= render "admin/layouts/left_bar" %>
         <%= render "admin/layouts/header" %>
@@ -22,5 +22,6 @@
         <%= yield %>
       </div>
     </div>
+    <%= render "layouts/footer" %>
   </body>
 </html>

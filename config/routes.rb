@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :requests
     resources :shop_types
     resources :categories
+    resources :users, except: [:new, :create, :edit]
   end
 
   namespace :shop_owner do

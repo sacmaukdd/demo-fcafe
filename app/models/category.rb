@@ -6,7 +6,7 @@ class Category < ApplicationRecord
 
   validates :name, presence: true, 
     length: {maximum: Settings.categories.name_max_length}, 
-    uniqueness: {case_sensitive: false}
+    uniqueness: true
 
   scope :newest, ->{order created_at: :desc}
   scope :by_shop, ->shop_id do

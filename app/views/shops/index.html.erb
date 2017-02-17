@@ -3,50 +3,48 @@
     themed-background-dark">
     <div class="container text-center">
       <h1 class="animation-slideDown">
-        <strong><%= t "all_shops" %></strong>
+        <strong><%= t "all_shop_requet" %></strong>
       </h1>
     </div>
   </section>
 </div>
 <section class="site-content site-section">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
       <button type = "button" class = "btn btn-info" data-toggle = "modal"
       data-target = "#myModalShop"><%= t "new_shop" %></button>
+      <hr>
       <div class="table-responsive">
         <table class="table table-vcenter table-striped">
-          <tr>
-            <th><%= t "name" %></th>
-            <th><%= t "address" %></th>
-            <th><%= t "description" %></th>
-            <th><%= t "shop_type" %></th>
-            <th><%= t "status" %></th>
-            <th colspan="2"><%= t "action" %></th>
+          <tr class="request-shop">
+            <th class="name text-center"><%= t "name" %></th>
+            <th class="text-center"><%= t "address" %></th>
+            <th class="text-center"><%= t "description" %></th>
+            <th class="text-center"><%= t "shop_type" %></th>
+            <th class="text-center"><%= t "status" %></th>
+            <th class="action text-center"><%= t "action" %></th>
           </tr>
           <% @shops.each do |shop| %>
-            <tr>
-              <td>
+            <tr class="request-shop">
+              <td class="name text-center">
                 <div class="center">
                   <strong><%= link_to shop.name, "#" %></strong>
                 </div>
                 <div class="clr"></div>
                 <div class="avatar-shop">
-                  <%= image_tag shop.avatar %>
+                  <%= image_tag shop.avatar.url, 
+                    size: Settings.images.image_small_size  %>
                 </div>
               </td>
               <td><%= shop.address %></td>
               <td><%= shop.description.html_safe %></td>
               <td><%= shop.shop_type.name %></td>
-              <td><%= shop.status %></td>
-              <td>
-                <div class="btn-group btn-group-xs">
-                  <%= link_to edit_shop_path(shop),
-                    class: "btn btn-default" do %>
-                    <i class="fa fa-pencil"><%= t "edit" %></i>
-                  <% end %>
-                </div>
-              </td>
-              <td>
+              <td class="text-center"><%= shop.status %></td>
+              <td class="action">
+                <%= link_to edit_shop_path(shop),
+                  class: "btn btn-default" do %>
+                  <i class="fa fa-pencil"><%= t "edit" %></i>
+                <% end %>
                 <%= link_to shop_path(shop), method: :delete,
                   data: {confirm: t("sure")}, class: "btn btn-danger" do %>
                   <i class="fa fa-times"><%= t "cancel" %></i>

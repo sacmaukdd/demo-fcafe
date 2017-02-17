@@ -9,9 +9,9 @@ class Admin::RequestsController < ApplicationController
   def update
     @shop.update status: params[:value]
     if @shop.save
-      flash[:success] = t "success"
+      flash[:success] = t(".update_success", status: params[:value])
     else
-      flash[:danger] = t "not_success"
+      flash[:danger] = t ".update_error"
     end
     redirect_to :back
   end
@@ -20,7 +20,7 @@ class Admin::RequestsController < ApplicationController
   def load_shop
     @shop = Shop.find_by id: params[:id]
     unless @shop
-      flash[:success] = t "shop_not_found"
+      flash[:success] = t ".shop_not_found"
       redirect_to :back
     end
   end

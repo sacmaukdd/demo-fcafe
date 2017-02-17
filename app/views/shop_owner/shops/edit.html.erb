@@ -1,4 +1,4 @@
-<%= form_for @shop, html: {multipart: true} do |f| %>
+<%= form_for [:shop_owner, @shop], html: {multipart: true} do |f| %>
   <%= render "shared/error_messages", object: f.object %>
 
   <%= f.label :name %>

@@ -1,14 +1,14 @@
 <table class="table table-vcenter table-striped">
   <tr>
-    <th><%= t ".name" %></th>
-    <th><%= t ".address" %></th>
-    <th><%= t ".description" %></th>
-    <th><%= t ".shop_type" %></th>
-    <th colspan="2"><%= t ".status" %></th>
+    <th class="text-center name"><%= t ".name" %></th>
+    <th class="text-center"><%= t ".address" %></th>
+    <th class="text-center"><%= t ".description" %></th>
+    <th class="text-center"><%= t ".shop_type" %></th>
+    <th class="text-center status"><%= t ".status" %></th>
   </tr>
   <% requests.each do |request| %>
     <tr>
-      <td>
+      <td  class="text-center">
         <div class="center">
           <strong><%= link_to request.name, "#" %></strong>
         </div>
@@ -19,21 +19,17 @@
       </td>
       <td><%= request.address %></td>
       <td><%= request.description.html_safe %></td>
-      <td><%= request.shop_type.name %></td>
-      <% if request.waiting? %>
-        <td>
-          <%= link_to t("approve"), admin_request_path(request, value: :approved),
-            method: :put, class: "label label-success" %>
-        </td>
-        <td>
-          <%= link_to t("reject"), admin_request_path(request, value: :rejected),
-            method: :put, class: "label label-danger" %>
-        </td>
-      <% else %>
-        <td>
-          <%= request.status %>
-        </td>
-      <% end %>
+      <td class="text-center"><%= request.shop_type.name %></td>
+      <td class="text-center">
+        <% if request.waiting? %>
+            <%= link_to t("approve"), admin_request_path(request, value: :approved),
+              method: :put, class: "label label-success" %>
+            <%= link_to t("reject"), admin_request_path(request, value: :rejected),
+              method: :put, class: "label label-danger" %>
+        <% else %>
+            <%= request.status %>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>

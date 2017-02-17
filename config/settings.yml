@@ -6,7 +6,9 @@ users:
   phone_max_length: 15
   image_max_size: 5242880
   avatar_size: 200
+  avatar_small_size: 60
   image_type: "image/jpeg,image/gif,image/png"
+  per_page: 10
 per_page: 10
 action_edit: "edit"
 suggestions:
@@ -16,6 +18,7 @@ suggestions:
   name_max_length: 50
   description_max_length: 255
 images:
+  image_small_size: 50
   image_max_size: 5242880
   image_accept: "image/jpeg,image/gif,image/png"
 one: 1
@@ -28,3 +31,7 @@ shops:
 tables:
   unavailable: "unavailable"
   available: "available"
+text:
+  max_length: 80
+staticpages:
+  per_page: 12

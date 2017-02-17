@@ -103,3 +103,59 @@ tr.suggestion{
     width: 60px;
   }
 }
+/*Users*/
+tr.display-users{
+  th.index{
+    width: 50px;
+  }
+  th.action{
+    width: 150px;
+  }
+  td.index{
+    width: 50px;
+  }
+  td.action{
+    width: 150px;
+  }
+}
+
+.shop-item{
+  max-height: 500px;
+  min-height: 500px;
+}
+/* Request shop */
+
+tr.request-shop{
+  th.action{
+    width: 110px;
+  }
+  td.action{
+    width: 110px;
+  }
+  th.name{
+    width: 80px;
+  }
+  td.name{
+    width: 80px;
+  }
+}
+
+/* shop */
+tr.display-shop{
+  th.action{
+    width: 110px;
+  }
+  td.action{
+    width: 110px;
+  }
+  th.name{
+    width: 80px;
+  }
+  td.name{
+    width: 80px;
+  }
+}
+
+#abd{
+  min-height: 700px;
+}

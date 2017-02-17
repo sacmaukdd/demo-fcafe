@@ -27,37 +27,25 @@ end
 ShopType.create!(name: "House coffee")
 ShopType.create!(name: "Garden coffee")
 
-4.times do |n|
+50.times do |n|
   name = "Shop #{n+1}"
   description = Faker::Lorem.sentence 20
   address = "#{n+1} Le Duan"
+  status = 1
   user_id = 1
   shop_type_id = rand 1..2
   Shop.create!(name: name, description: description, address: address,
-    user_id: user_id, shop_type_id: shop_type_id)
+    user_id: user_id, shop_type_id: shop_type_id, status: status)
 end
 
-100.times do |n|
+500.times do |n|
   name = "Table #{n+1}"
   location = "A"
   num_chair = rand 2..6
-  shop_id = rand 1..3
+  shop_id = rand 1..50
   status = rand 0..1
   Table.create!(name: name, location: location, num_chair: num_chair,
     shop_id: shop_id, status: status)
-end
-
-ShopType.create!(name: "House coffee")
-ShopType.create!(name: "Garden coffee")
-
-4.times do |n|
-  name = "Shop #{n+1}"
-  description = Faker::Lorem.sentence 20
-  address = "#{n+1} Le Duan"
-  user_id = 1
-  shop_type_id = rand 1..2
-  Shop.create!(name: name, description: description, address: address,
-    user_id: user_id, shop_type_id: shop_type_id)
 end
 
 Category.create!(name: "Coffee")
@@ -65,7 +53,7 @@ Category.create!(name: "Tea")
 Category.create!(name: "Soda")
 Category.create!(name: "Cocktail")
 
-30.times do |n|
+100.times do |n|
   name = "Product #{n+1}"
   price = rand 10..200
   category_id = rand 1..4

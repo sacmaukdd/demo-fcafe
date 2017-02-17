@@ -1,0 +1,31 @@
+<div id="main-container">
+  <div id="page-content">
+    <div class="block full">
+      <div class="block-title">
+        <h2><strong><%= t ".users" %></strong></h2>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-md-offset-0">
+          <div class="table-responsive">
+            <table class="table table-vcenter table-striped">
+              <tr class="display-users">
+                <th class="index text-center"><%= t".index" %></th>
+                <th class="text-center"><%= t ".avatar" %></th>
+                <th class="text-center"><%= t ".name" %></th>
+                <th class="text-center"><%= t ".email" %></th>
+                <th class="text-center"><%= t ".role" %></th>
+                <th class="text-center action"><%= t ".action" %></th>
+              </tr>
+              <tr class="display-users">
+                <%= render @users %>
+              </tr>
+            </table>
+          </div>
+          <div class="text-center">
+            <%= will_paginate %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</section>

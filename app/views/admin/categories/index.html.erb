@@ -34,7 +34,7 @@
                       <i class="fa fa-pencil-square-o"><%= t ".edit" %></i>
                     <% end %>
                     <%= link_to admin_category_path(category), method: :delete,
-                      data: {confirm: t("sure")}, class: "btn btn-default" do %>
+                      data: {confirm: t("sure")}, class: "btn btn-danger" do %>
                       <i class="fa fa-trash"><%= t ".delete" %></i>
                     <% end %>
                   </td>
