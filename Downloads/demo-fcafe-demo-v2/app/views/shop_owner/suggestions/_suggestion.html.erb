@@ -1,0 +1,27 @@
+<% suggestions.each_with_index do |suggestion, index|%>
+  <tr class="suggestion">
+    <td class="index"><%= index + Settings.one %>
+    </td>
+    <td class="image"><%= image_tag suggestion.image.url, 
+      size: Settings.suggestions.size %></td> 
+    <td class="name"><%= suggestion.name %></td>
+    <td class="description"><%= suggestion.description.html_safe %></td>
+    <td class="status">
+      <% if suggestion.processing? %>
+        <%= link_to t(".accept"), shop_owner_suggestion_path(suggestion,
+          value: :accepted), method: :put, class: "btn btn-success" %> 
+        <%= link_to t(".reject"), shop_owner_suggestion_path(suggestion,
+          value: :rejected), method: :put, class: "btn btn-danger" %>
+      <% else %>
+        <%= suggestion.status %>
+      <% end %>
+    </td>
+    <td class="action">
+      <% if suggestion.processing? %>
+        <%= link_to t(".btn_delete"), [:shop_owner, suggestion], 
+          method: :delete, data: {confirm: t(".confirm_delete",
+            name: suggestion.name)}, class: "btn btn-danger btn-action" %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

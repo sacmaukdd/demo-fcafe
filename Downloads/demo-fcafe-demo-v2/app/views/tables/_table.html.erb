@@ -1,0 +1,29 @@
+<% @tables.each do |table| %>
+  <div class="col-md-3" data-toggle="animation-appear"
+    data-animation-class="animation-fadeInQuick"
+    data-element-offset="-100">
+    <div class="store-item">
+      <div class="store-item-image">
+        <%= image_tag table.avatar.url, class: "img-responsive"%>
+      </div>
+      <div class="store-item-info clearfix">
+        <strong>
+          <%= t(".table_name", name: table.name) %>
+        </strong><br>
+        <h5>
+          <%= t(".table_location", location: table.location) %>
+        </h5>
+        <h5>
+          <%= t(".table_seats", seats: table.num_chair) %>
+        </h5>
+        <div class="text-center">
+        <% if table.status == Settings.tables.unavailable %>
+          <%= link_to t(".unavailable"), "#", class: "btn btn-danger" %>
+        <% else %>
+          <%= link_to t(".order"), "#", class: "btn btn-primary" %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

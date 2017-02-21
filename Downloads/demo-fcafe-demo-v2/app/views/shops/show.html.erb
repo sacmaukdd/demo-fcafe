@@ -1,0 +1,42 @@
+<div class="page-container">
+  <section class="site-section site-section-light site-section-top
+    themed-background-dark">
+    <div class="container text-center">
+      <h1 class="animation-slideDown">
+        <%= image_tag @shop.avatar.url, size: Settings.shops.image_size %>
+        <strong><%= @shop.name %></strong>
+        <br>
+        <%= @shop.address %>
+      </h1>
+    </div>
+  </section>
+</div>
+<section class="site-content site-section">
+  <div class="row">
+    <div class="form-create-shop col-md-10 col-md-offset-1">
+      <div class="text-center">
+        <%= form_tag shop_path(@shop.id), method: :get do %>
+          <%= select_tag :status, options_for_select(Table.statuses),
+            include_blank: t(".all"), onclick: "this.form.submit()" %>
+        <% end %>
+      </div>
+      <div>
+        <%= render "tables/table"%>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <h4><%= t "rating" %></h4>
+  <% if @value_rate.present? %>
+    <div id="rateit_star1" data-rateit-readonly="true"
+      data-rateit-value="<%= @value_rate.num_rate %>"></div>
+  <% else %>
+    <div id="rateit_star1"></div>
+  <% end %>
+  <%= form_for @rate, remote: true do |f| %>
+    <%= f.hidden_field :num_rate, id: :star_rs %>
+    <%= f.hidden_field :shop_id, value: @shop.id %>
+  <% end %>
+  <%= t "ratings"%> <%= "#{@avg_rating}" %>
+</div>

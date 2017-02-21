@@ -1,0 +1,47 @@
+<div class="page-container">
+  <section class="site-section site-section-light site-section-top
+    themed-background-dark">
+    <div class="container text-center">
+      <h1 class="animation-slideDown">
+        <strong><%= t ".all_suggestions" %></strong>
+      </h1>
+    </div>
+  </section>
+</div>
+
+<section class="site-content site-section">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <button type = "button" class = "btn btn-info" data-toggle = "modal"
+      data-target = "#addSuggestion"><%= t ".add_suggestion" %></button>
+      <hr>
+      <div class="table-responsive">
+        <table class="table table-vcenter table-striped">
+          <tr class="display-suggestion">
+            <th class="index"><%= t ".index" %></th>
+            <th class="image"><%= t ".image" %></th>
+            <th class="name"><%= t ".product" %></th>
+            <th class="description"><%= t ".description" %></th>
+            <th class="status"><%= t ".status" %></th>
+            <th class="action"><%= t ".action" %></th>
+          </tr>
+          <tr>
+            <%= render @suggestions %>
+          </tr>
+        </table>
+      </div>
+      <%= will_paginate %>
+    </div>
+  </div>
+  <div id = "addSuggestion" class = "modal fade" role = "dialog">
+    <div class = "modal-dialog modal-lg">
+      <div class = "modal-content">
+        <%= render "form" %>
+        <div class = "modal-footer">
+          <button type = button" class = "btn btn-default"
+            data-dismiss = "modal"><%= t ".close" %></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

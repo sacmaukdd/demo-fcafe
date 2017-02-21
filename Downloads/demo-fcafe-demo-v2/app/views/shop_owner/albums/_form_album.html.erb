@@ -1,0 +1,22 @@
+<section class="site-content site-section">
+  <% if @edit_page == Settings.action_edit %>
+    <h3 class="col-md-6 col-md-offset-3"><%= t "edit_album" %></h3>
+  <% else %>
+    <h3 class="center"><%= t "add_album" %></h3>
+  <% end %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for [:shop_owner, @album] do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+        <%= f.label :name %>
+        <%= f.text_field :name, required: true %>
+
+        <% unless @edit_page == Settings.action_edit %>
+          <%= f.hidden_field :shop_id, value: @shop_id %>
+        <% end %>
+
+        <%= f.submit (t "add"), class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</section>

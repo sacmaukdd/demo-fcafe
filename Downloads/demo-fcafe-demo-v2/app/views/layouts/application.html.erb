@@ -1,0 +1,21 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><%= t "title" %></title>
+    <%= stylesheet_link_tag "application", media: "all",
+      "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render "layouts/header" %>
+    <%= yield %>
+    <div class="container main-content">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+    </div>
+    <%= render "layouts/footer" %>
+  </body>
+</html>

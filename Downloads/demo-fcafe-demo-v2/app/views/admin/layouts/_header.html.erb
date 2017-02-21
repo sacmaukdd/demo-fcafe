@@ -1,0 +1,30 @@
+<div id="main-container">
+  <div id="page-content">
+    <div class="content-header">
+      <ul class="nav-horizontal text-center">
+        <li class="active">
+          <%= link_to admin_shop_types_path do %>
+            <i class="fa fa-bar-chart"></i><%= t ".shop_types" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_requests_path do %>
+            <i class="fa fa-ambulance"></i><%= t "requests" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#" do %>
+            <i class="gi gi-shopping_cart"></i>
+            <%= t "shop" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#" do %>
+            <i class="gi gi-shopping_bag"></i>
+            <%= t "product" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

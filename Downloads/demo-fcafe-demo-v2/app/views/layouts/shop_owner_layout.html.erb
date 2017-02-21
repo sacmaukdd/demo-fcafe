@@ -1,0 +1,52 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><%= t "title" %></title>
+    <%= stylesheet_link_tag "application", media: "all",
+      "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="page-wrapper">
+      <div id="page-container" class="sidebar-partial sidebar-visible-lg
+        sidebar-no-animations">
+        <%= render "shop_owner/layouts/left_bar" %>
+        <div id="main-container">
+          <div id="page-content">
+            <div class="content-header">
+              <ul class="nav-horizontal text-right">
+                <li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <span class="glyphicon glyphicon-user"></span>
+                      <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to t("header.activity"), "#" %></li>
+                      <li><%= link_to t("header.profile"), "#" %></li>
+                      <li><%= link_to t("header.setting"), "#" %></li>
+                      <li>
+                        <%= link_to t("header.logout"), destroy_user_session_path, method: :delete %>
+                      </li>
+                    </ul>
+                  </li>
+                </li>
+              </ul>
+            </div>
+            <div class="block full">
+              <% flash.each do |message_type, message| %>
+                <div class="alert alert-<%= message_type %> col-md-offset-2">
+                  <%= message %>
+                </div>
+              <% end %>
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= render "layouts/footer" %>
+  </body>
+</html>

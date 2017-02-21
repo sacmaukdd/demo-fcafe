@@ -1,0 +1,55 @@
+<div id="main-container">
+  <div id="page-content">
+    <div class="block full">
+      <div class="block-title">
+        <h2>
+          <strong><%= t ".user_detail" %> </strong>
+          <%= t ".overview" %>
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-md-offset-0">
+          <div class="col-md-offset-1 col-md-3">
+            <div class="user_avatar">
+              <%= image_tag @user.avatar.url, size: Settings.users.avatar_size %>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <table class="table ">
+              <theader>
+                <tr>
+                  <th><%= t ".user_name" %></th>
+                  <td><%= @user.user_name %></td>
+                </tr>
+              </theader>
+              <tbody>
+                <tr>
+                  <th><%= t ".email" %></th>
+                  <td><%= @user.email %></td>
+                </tr>
+                <tr>
+                  <th><%= t ".phone_number" %></th>
+                  <td><%= @user.phone_number %></td>
+                </tr>
+                <tr>
+                  <th><%= t ".address" %></th>
+                  <td><%= @user.address %></td>
+                </tr>
+                <tr>
+                  <th><%= t ".role" %></th>
+                  <td><%= @user.role %></td>
+                </tr>
+              </tbody>
+            </table>
+            <% if can? :edit, @user %>
+              <%= link_to t(".edit_profile"), edit_user_registration_path,
+                class: "btn btn-primary" %>
+            <% end %>
+            <%= link_to t(".cancel"), admin_users_path, 
+              class: "btn btn-default" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

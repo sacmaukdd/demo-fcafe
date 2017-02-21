@@ -1,0 +1,30 @@
+<tr class="display-users">
+  <td class="index text-center">
+    <%= index_for user_counter, @users.current_page, Settings.users.per_page %>
+  </td>
+  <td class="text-center"><%= image_tag user.avatar.url, 
+    size: Settings.users.avatar_small_size %></td>
+  <td><%= link_to user.user_name, admin_user_path(user) %></td>
+  <td><%= user.email %></td>
+  <td class="text-center"><%= user.role %></td>
+  <td class="text-center action">
+    <% if can? :update, user %>
+      <% if user.mod? %>
+        <%= link_to admin_user_path(user, role: :user), method: :put,
+          class: "btn btn-primary" do %>
+          <i class="fa fa-cogs"><%= t ".set_user" %></i>
+        <% end %>
+      <% else %>
+        <%= link_to admin_user_path(user, role: :mod), method: :put, 
+          class: "btn btn-primary" do %>
+          <i class="fa fa-cogs"><%= t ".set_mod" %></i>
+        <% end %>
+      <% end %>
+    <% end %>
+    <%= link_to admin_user_path(user), method: :delete,
+      data: {confirm: t(".delete_confirm", 
+      name: user.user_name)}, class: "btn btn-danger" do %>
+      <i class="fa fa-trash"><%= t ".delete" %></i>
+    <% end %>
+  </td>
+</tr>

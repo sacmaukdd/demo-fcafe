@@ -1,0 +1,337 @@
+en:
+  title: "Fcoffee"
+  home: "Home"
+  signup: "Sign up"
+  search_shop: "Search Shop.."
+  best: "Best"
+  coffee_shop: "Coffee Shop"
+  all: "All"
+  name_coffee: "Name Coffee"
+  welcome: "Welcome to our Online Coffee Shop!"
+  explore_product: "Explore over 5.000 products!"
+  description: "Description"
+  about_us: "About Us"
+  company: "Company"
+  support: "Support"
+  legal: "Legal"
+  licensing: "Licensing"
+  privacy_policy: "Privacy Policy"
+  follow_us: "Follow Us"
+  year: "2017"
+  crafted_with: "Crafted with"
+  by_dtt: "By DTT"
+  category1: "Category 1"
+  category2: "Category 2"
+  category3: "Category 3"
+  shop_types:
+    show:
+      shop_type_not_found: "Shop type not found"
+  layouts:
+    header:
+      signup: "Sign up"
+      loggin: "Log in"
+      contact: "Contact"
+      about: "About"
+      request_shop: "Request shop"
+      suggestion: "Suggestion product"
+    shop_owner_layout:
+      statistic: "Statistic"
+  shared:
+    error_messages:
+      error_message: "The form contains "
+      error: "error"
+  users:
+    max_size_error: "Maximum file size is 5MB. Please choose a smaller file."
+    new:
+      signup: "Sign up"
+      signup_title: "Sign up"
+      create_btn: "Sign up"
+    show:
+      profile: "Profile"
+      name: "User name: "
+      email: "Email: "
+      phone_number: "Phone number: "
+      address: "Address: "
+      not_found: "User not found"
+    create:
+      welcome_message: "Welcome to Fcoffee"
+  create_cfshop: "Create Coffee Shop"
+  create: "Create"
+  sky: "Sky"
+  garden: "Garden"
+  shop_type: "Shop Types"
+  all_shop_type: "All Shops Types"
+  edit: Edit
+  delete: "Delete"
+  new_shop_type: "New shop type"
+  add: "Add"
+  close: "Close"
+  create_complete: "Create complete"
+  not_create: "Not create"
+  del_complete: "Delete complete"
+  not_delete: "Not delete"
+  shop_type_not_found: "Shop type not found"
+  shop_type_updated: "Shop type updated"
+  save: "Save"
+  edit_shop_type: "Edit shop type"
+  sure: "Are you sure ?"
+  shop_type_exist: "Shop type exist"
+  all_shop_requet: "All shop request"
+  name: "Name"
+  address: "Address"
+  description: "Description"
+  album: "Album"
+  shop_type: "Shop type"
+  new_shop: "New shop"
+  edit_CFShop: "Edit Coffe Shop"
+  shop_not_found: "Shop not found"
+  shop_updated: "Shop updated"
+  status: "Status"
+  no_data: "No Data"
+  add_album: "Add Album"
+  new_album: "New Album"
+  submit: "Submit"
+  album_not_found: "Album_not_found"
+  album_updated: "Album updated"
+  album_not_update: "Album not update"
+  view_image: "View Image"
+  cancel: "Cancel"
+  my_shop: "My Shops"
+  suggestions:
+    form:
+      product_name: "Product name"
+      description: "Description"
+    new:
+      add_suggestion: "Suggest new product"
+    create:
+      create_success: "Send suggest a new product successful"
+      create_error: "Send suggest a new product unsuccessful"
+    index:
+      all_suggestions: "List suggestion"
+      close: "Close"
+    destroy:
+      destroy_success: "Deleted successful"
+      destroy_error: "Deleted unsuccessful"
+    suggestion:
+      btn_delete: "Delete"
+      confirm_delete: "Product %{name} will be deleted. Do you to delete it?"
+    load_suggestion:
+      not_found: "This product not found"
+  images:
+    max_size_error: "Maximum file size is 5MB. Please choose a smaller file."
+  tables:
+    table:
+      table_name: "Table name: %{name}"
+      table_location: "Loaction: %{location}"
+      table_seats: "Seats: %{seats} chairs"
+      unavailable: "Unavailable"
+      order: "Order"
+  admin:
+    shop_types:
+      index:
+        shop_types: "Shop Types"
+        overview: "Overview"
+    layouts:
+      left_bar:
+        username: "Username"
+        dashboard: "Dashboard"
+        dropdown: "Dropdown"
+        product: "Product"
+        shop: "Shop"
+        shop_types: "Shop Types"
+        requests: "Requests"
+        categories: "Categories"
+        overview: " Overview"
+        users: "Users"
+      header:
+        requests: "Requests"
+        shop_types: "Shop Types"
+    staticpages:
+      dashboard: "Dashboard"
+      product: "Product"
+      shop: "Shop"
+      orders: "Orders"
+      overview: "Overview"
+      total_shop: "Total Shops"
+      all_shop: "35000"
+    categories:
+      index:
+        all_category: "All categories"
+        id: "ID"
+        parent_id: "Parent id"
+        name: "Category name"
+        action: "Action"
+        edit: "Edit"
+        delete: "Delete"
+        root: "root"
+        not_found: "This category not found"
+      new:
+        new_category: "New category"
+        edit_category: "Edit category"
+      create:
+        category_existed: "This category existed"
+        create_success: "Create category successful"
+        relationship_error: "The category '%{name}' has %{num_product} products.
+          Please delete it before action"
+        not_found: "This category not found"
+      edit:
+        edit_category: "Edit category"
+      update:
+        update_success: "Updated successful"
+        update_error: "Updated unsuccessful"
+      destroy:
+        delete_success: "Deleted successful"
+        delete_error: "Deleted unsuccessful"
+        relationship_error: "This category has some sub category. Please delete
+          it before action"
+      load_category:
+        not_found: "This category not found"
+      load_parent_category:
+        not_found: "This category not found"
+      load_list_category:
+        not_found: "This category not found"
+      form:
+        category_name: "Category name"
+        cancel: "Cancel"
+        parent_name: "Parent name"
+        none: "None"
+    requests:
+      table:
+        name: "Name"
+        address: "Address"
+        description: "Description"
+        shop_type: "Shop Type"
+        status: "Status"
+        delete: "Delete"
+      update:
+        success: "Success"
+        not_success: "Not Success"
+      shops:
+        name: "Name"
+        address: "Address"
+        description: "Description"
+        album: "Album"
+        shop_type: "Shop type"
+        status: "Status"
+        action: "Action"
+        album_images: "Album Images"
+        albums: "Albums"
+      update:
+        update_success: "%{status} complete"
+    users:
+      index:
+        users: "All Users"
+        index: "Index"
+        avatar: "Avatar"
+        name: "User name"
+        email: "Email"
+        phone_number: "Phone number"
+        address: "Address"
+        role: "Role"
+        action: "Action"
+      show:
+        user_detail: "User detail"
+        overview: "Overview"
+        user_name: "User name"
+        email: "Email"
+        phone_number: "Phone number"
+        address: "Address"
+        role: "Role"
+        cancel: "Cancel"
+      user:
+        delete_confirm: "The '%{name}' will be deleted. Are you sure to continue"
+        delete: "Delete"
+        set_user: "Set user"
+        set_mod: "Set mod"
+      update:
+        update_success: "Set %{role} role successful"
+        update_error: "Set %{role} role unsuccessful"
+      destroy:
+        destroy_success: "Deleted successful"
+        destroy_error: "Deleted unsuccessful"
+  shop_owner:
+    albums:
+      create:
+        album_exist: "Album exist"
+      update:
+        album_exist: "Album exist"
+    suggestions:
+      update:
+        update_success: "You have %{status} the %{product}"
+        update_error: "You %{status} the %{product} unsuccessful"
+      destroy:
+        destroy_success: "Deleted the suggestion product successful"
+        destroy_error: "Deleted the suggestion product unsuccessful"
+      header_table:
+        index: "Index"
+        image: "Image"
+        product: "Product name"
+        description: "Description"
+        status: "Status"
+        action: "Action"
+      suggestion:
+        accept: "Accept"
+        reject: "Reject"
+        btn_delete: "Delete"
+        confirm_delete: "Product %{name} will be deleted. Do you to delete it?"
+      load_suggestion:
+        not_found: "This suggestion product not found"
+      layouts:
+        left_bar:
+          statistic: "Statistic"
+          products: "Products"
+          users: "Users"
+          suggestions: "Suggestions"
+          categories: "Categories"
+    categories:
+      index:
+        all_categories: "All categories"
+        new_category: "New category"
+        id: "ID"
+        name: "Category name"
+        parent_id: "Parent id"
+        owner: "Owner"
+        action: "Action"
+        root: "Root"
+        admin: "Admin"
+        edit: "Edit"
+        delete: "Delete"
+        shop_id: "shop_id"
+        choice_a_shop: "choice a shop"
+      new: 
+        new_category: "New category"
+      create:
+        category_existed: "This category existed"
+        create_success: "Create category successful"
+        relationship_error: "The category '%{name}' has %{num_product} products.
+          Please delete it before action"
+        not_found: "This category not found"
+      edit:
+        edit_category: "Edit category"
+      update:
+        update_success: "Updated successful"
+        update_error: "Updated unsuccessful"
+      destroy:
+        delete_success: "Deleted successful"
+        delete_error: "Deleted unsuccessful"
+        relationship_error: "This category has some sub category. Please delete
+          it before action"
+      form:
+        category_name: "Category name"
+        cancel: "Cancel"
+        parent_name: "Parent name"
+        none: "None"
+      load_category:
+        not_found: "This category not found"
+      load_parent_category:
+        not_found: "This category not found"
+      load_list_category:
+        not_found: "This category not found"
+    requests:
+      index:
+        approve: "Approve"
+        reject: "Reject"
+        waiting: "Waiting"
+        approved: "Approved"
+        accepted: "Accepted"
+        rejected: "Rejected"

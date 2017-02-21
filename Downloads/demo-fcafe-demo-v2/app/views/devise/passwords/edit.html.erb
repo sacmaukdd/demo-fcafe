@@ -1,0 +1,30 @@
+<div class="col-md-4 col-md-offset-4">
+  <h2 class="text-center"><%= t ".header" %></h2>
+
+  <%= form_for resource, as: resource_name, url: password_path(resource_name),
+    html: {method: :put} do |f| %>
+    <%= devise_error_messages! %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <div class="field form-group">
+      <%= f.label :password, t(".lbl_password") %><br />
+      <% if @minimum_password_length %>
+        <em><%= t ".minimum_length", min: @minimum_password_length %></em><br />
+      <% end %>
+      <%= f.password_field :password, class: "form-control", autofocus: true,
+        autocomplete: "off" %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :password_confirmation, t(".lbl_confirm_password") %><br />
+      <%= f.password_field :password_confirmation, class: "form-control",
+        autocomplete: "off" %>
+    </div>
+
+    <div class="actions form-group">
+      <%= f.submit t(".btn_submit"), class: "form-control btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

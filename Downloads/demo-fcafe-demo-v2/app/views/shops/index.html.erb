@@ -1,0 +1,71 @@
+<div class="page-container">
+  <section class="site-section site-section-light site-section-top
+    themed-background-dark">
+    <div class="container text-center">
+      <h1 class="animation-slideDown">
+        <strong><%= t "all_shop_requet" %></strong>
+      </h1>
+    </div>
+  </section>
+</div>
+<section class="site-content site-section">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <button type = "button" class = "btn btn-info" data-toggle = "modal"
+      data-target = "#myModalShop"><%= t "new_shop" %></button>
+      <hr>
+      <div class="table-responsive">
+        <table class="table table-vcenter table-striped">
+          <tr class="request-shop">
+            <th class="name text-center"><%= t "name" %></th>
+            <th class="text-center"><%= t "address" %></th>
+            <th class="text-center"><%= t "description" %></th>
+            <th class="text-center"><%= t "shop_type" %></th>
+            <th class="text-center"><%= t "status" %></th>
+            <th class="action text-center"><%= t "action" %></th>
+          </tr>
+          <% @shops.each do |shop| %>
+            <tr class="request-shop">
+              <td class="name text-center">
+                <div class="center">
+                  <strong><%= link_to shop.name, "#" %></strong>
+                </div>
+                <div class="clr"></div>
+                <div class="avatar-shop">
+                  <%= image_tag shop.avatar.url, 
+                    size: Settings.images.image_small_size  %>
+                </div>
+              </td>
+              <td><%= shop.address %></td>
+              <td><%= shop.description.html_safe %></td>
+              <td><%= shop.shop_type.name %></td>
+              <td class="text-center"><%= shop.status %></td>
+              <td class="action">
+                <%= link_to edit_shop_path(shop),
+                  class: "btn btn-default" do %>
+                  <i class="fa fa-pencil"><%= t "edit" %></i>
+                <% end %>
+                <%= link_to shop_path(shop), method: :delete,
+                  data: {confirm: t("sure")}, class: "btn btn-danger" do %>
+                  <i class="fa fa-times"><%= t "cancel" %></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+      <%= will_paginate %>
+    </div>
+  </div>
+  <div id = "myModalShop" class = "modal fade" role = "dialog">
+    <div class = "modal-dialog modal-lg">
+      <div class = "modal-content">
+        <%= render "form_shop" %>
+        <div class = "modal-footer">
+          <button type = button" class = "btn btn-default"
+            data-dismiss = "modal"><%= t "close" %></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

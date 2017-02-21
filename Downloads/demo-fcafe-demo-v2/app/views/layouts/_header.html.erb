@@ -1,0 +1,29 @@
+<header>
+  <div class="container">
+    <%= link_to root_path, class: "site-logo" do %>
+      <strong><%= t "home" %></strong>
+    <% end %>
+    <nav>
+      <ul class="site-nav">
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to t(".request_shop"), shops_path %>
+          </li>
+          <li>
+            <%= link_to t(".suggestion"), suggestions_path %>
+          </li>
+          <li>
+            <%= link_to t(".about"), "#" %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to t(".login"), new_user_session_path %>
+          </li>
+          <li>
+            <%= link_to t(".signup"), new_user_registration_path %>
+          </li>
+        <% end %>        
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,18 @@
+<%= form_for @suggestion, html: {multipart: true, 
+  class: "form-horizontal suggestion-form", id: "suggestion_form"} do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+ 
+  <%= f.label :product_name %>
+  <%= f.text_field :name, class: "form-control", placeholder: t(".product_name") %><br/>
+
+  <%= f.label :description %>
+  <%= f.cktext_area :description, rows: Settings.suggestions.area_rows, 
+    class: "form-control", placeholder: t(".description") %><br/>
+
+  <%= f.label :image %>
+  <%= f.file_field :image, accept: Settings.images.image_accept %><br/>
+
+  <div class="btn-submit-form">
+    <%= f.submit t("submit"), class: "btn btn-primary" %>
+  </div>
+<% end %>

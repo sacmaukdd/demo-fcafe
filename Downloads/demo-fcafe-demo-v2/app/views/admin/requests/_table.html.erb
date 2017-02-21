@@ -1,0 +1,35 @@
+<table class="table table-vcenter table-striped">
+  <tr>
+    <th class="text-center name"><%= t ".name" %></th>
+    <th class="text-center"><%= t ".address" %></th>
+    <th class="text-center"><%= t ".description" %></th>
+    <th class="text-center"><%= t ".shop_type" %></th>
+    <th class="text-center status"><%= t ".status" %></th>
+  </tr>
+  <% requests.each do |request| %>
+    <tr>
+      <td  class="text-center">
+        <div class="center">
+          <strong><%= link_to request.name, "#" %></strong>
+        </div>
+        <div class="clr"></div>
+        <div class="avatar-shop">
+          <%= image_tag request.avatar %>
+        </div>
+      </td>
+      <td><%= request.address %></td>
+      <td><%= request.description.html_safe %></td>
+      <td class="text-center"><%= request.shop_type.name %></td>
+      <td class="text-center">
+        <% if request.waiting? %>
+            <%= link_to t("approve"), admin_request_path(request, value: :approved),
+              method: :put, class: "label label-success" %>
+            <%= link_to t("reject"), admin_request_path(request, value: :rejected),
+              method: :put, class: "label label-danger" %>
+        <% else %>
+            <%= request.status %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,67 @@
+<% provide :title, t(".all_categories") %>
+<% provide :title, t(".all_categories") %>
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h1><%= t ".all_categories" %></h1>
+    <%= link_to t(".new_category"), new_shop_owner_category_path,
+      class: "btn btn-info" %>
+    <hr>
+    <div>
+      <%= form_tag shop_owner_categories_path, method: :get do %>
+        <%= select_tag :shop_id, options_for_select(current_user
+          .shops.map{|f| [f.name, f.id]}), include_blank: t(".choice_a_shop"),
+          onchange: "this.form.submit()" %> 
+      <% end %>
+    </div>
+    <br>
+    <div class="table-responsive">
+      <table class="table table-vcenter table-striped">
+        <tr class="display-categories">
+          <th class="index text-center"><%= t".id" %></th>
+          <th class="text-center"><%= t ".name" %></th>
+          <th class="text-center"><%= t ".parent_id" %></th>
+          <th class="text-center"><%= t ".owner " %></th>
+          <th class="text-center"><%= t ".action" %></th>
+        </tr>
+        <% if @categories %>
+          <% @categories.each do |category| %>
+            <tr class="display-categories">
+              <td class="index text-center"><%= category.id %></td>
+              <td class="text-center"><%= category.name %></td>
+              <td class="text-center">
+                <% if category.parent_id.blank? %>
+                  <%= t ".root" %>
+                <% else %>
+                  <%= category.parent_id %>
+                <% end %>
+              </td>
+              <td>
+                <% if category.shop_id.blank? %>
+                  <%= t ".admin" %>
+                <% else %>
+                  <%= category.shop.name %>
+                <% end %>
+              </td>
+              <td class="text-center">
+                <% if can? :manage, category %>
+                  <%= link_to edit_shop_owner_category_path(category),
+                    class: "btn btn-default" do %>
+                    <i class="fa fa-pencil-square-o"><%= t ".edit" %></i>
+                  <% end %>
+                  <%= link_to shop_owner_category_path(category), method: :delete,
+                    data: {confirm: t("sure")}, class: "btn btn-default" do %>
+                    <i class="fa fa-trash"><%= t ".delete" %></i>
+                  <% end %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
+    <div class="text-center">
+      <%= will_paginate %>
+    </div>
+  </div>
+</div>

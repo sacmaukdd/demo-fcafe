@@ -1,0 +1,22 @@
+<%= form_for [:shop_owner, @shop], html: {multipart: true} do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %><br >
+
+  <%= f.label :address %>
+  <%= f.text_area :address, class: "form-control" %><br >
+
+  <%= f.label :description %>
+  <%= f.cktext_area :description%><br >
+
+  <%= f.label :shop_type %>
+  <%= f.select :shop_type_id,
+    options_for_select(@shop_types.collect{|shop_type| [shop_type.name,
+    shop_type.id]}), class: "select-form" %><br ><br >
+
+  <%= f.label :avatar %>
+  <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png" %><br >
+
+  <%= f.submit t("edit"), class: "btn btn-primary" %>
+<% end %>

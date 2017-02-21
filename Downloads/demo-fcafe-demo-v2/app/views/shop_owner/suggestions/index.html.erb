@@ -1,0 +1,57 @@
+<% provide :title, t(".all_suggestions") %>
+<h1><%= t ".all_suggestions" %></h1>
+
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active">
+    <%= link_to t("admin.suggestions.processing"), "#processing", 
+      data: {toggle: "tab"} %>
+  <li role="presentation">
+    <%= link_to t("admin.suggestions.accepted"), "#accepted", 
+      data: {toggle: "tab"} %>
+  </li>
+  <li role="presentation">
+    <%= link_to t("admin.suggestions.rejected"), "#rejected", 
+      data: {toggle: "tab"} %>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="processing">
+    <div class="row">
+      <table class="table table-sub table-striped table-hover">
+        <%= render "header_table" %>
+        <%= render "shop_owner/suggestions/suggestion",
+          suggestions: @supports.processing %>
+      </table>
+      <div class="paginate">
+        <%= will_paginate @supports.processing, param_name: "processing_page" %>
+      </div>
+    </div>
+  </div>
+
+  <div role="tabpanel" class="tab-pane fade" id="accepted">
+    <div class="row">
+      <table class="table table-sub table-striped table-hover">
+        <%= render "header_table" %>
+        <%= render "shop_owner/suggestions/suggestion",
+          suggestions: @supports.accepted %> 
+      </table>
+      <div class="paginate">
+        <%= will_paginate @supports.accepted, param_name: "accepted_page" %>
+      </div>
+    </div>
+  </div>
+
+  <div role="tabpanel" class="tab-pane fade" id="rejected">
+    <div class="row">
+      <table class="table table-sub table-striped table-hover">
+        <%= render "header_table" %>
+        <%= render "shop_owner/suggestions/suggestion",
+          suggestions: @supports.rejected %>
+      </table>
+      <div class="paginate">
+        <%= will_paginate @supports.rejected, param_name: "rejected_page" %>
+      </div>
+    </div>
+  </div>
+</div>

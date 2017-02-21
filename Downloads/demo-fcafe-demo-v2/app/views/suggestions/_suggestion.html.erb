@@ -1,0 +1,14 @@
+<tr class="suggestion">
+  <td class="index"><%= index_for suggestion_counter, @suggestions.current_page,
+    Settings.suggestions.per_page %></td>
+  <td class="image"><%= image_tag suggestion.image.url, 
+    size: Settings.suggestions.size %></td>  
+  <td class="name"><%= suggestion.name %></td>
+  <td class="description"><%= suggestion.description.html_safe %></td>
+  <td class="status"><%= suggestion.status %></td>
+  <td class="action">
+    <%= link_to t(".btn_delete"), suggestion, method: :delete,
+      data: {confirm: t(".confirm_delete", name: suggestion.name)},
+      class: "btn btn-danger btn-action" %>
+  </td>
+</tr>

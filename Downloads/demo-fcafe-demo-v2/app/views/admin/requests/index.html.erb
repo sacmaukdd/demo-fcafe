@@ -1,0 +1,61 @@
+<div id="main-container">
+  <div id="page-content">
+    <div class="block full">
+      <div class="block-title">
+        <h2><strong><%= t "requests" %></strong></h2>
+      </div>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+              <%= link_to t("waiting"), "#waiting", data: {toggle: "tab"} %>
+            <li role="presentation">
+              <%= link_to t("approved"), "#approved", data: {toggle: "tab"} %>
+            </li>
+            <li role="presentation">
+              <%= link_to t("rejected"), "#rejected", data: {toggle: "tab"} %>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade in active" id="waiting">
+              <div class="row">
+                <table class="table table-sub table-striped table-hover">
+                  <%= render partial: "table",
+                    locals: {requests: @supports.waiting} %>
+                </table>
+                <div class="paginate">
+                  <%= will_paginate @supports.waiting,
+                    theme: "twitter-bootstrap-3" %>
+                </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="approved">
+              <div class="row">
+                <table class="table table-sub table-striped table-hover">
+                  <%= render partial: "table",
+                    locals: {requests: @supports.approve} %>
+                </table>
+                <div class="paginate">
+                  <%= will_paginate @supports.approve,
+                    theme: "twitter-bootstrap-3" %>
+                </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="rejected">
+              <div class="row">
+                <table class="table table-sub table-striped table-hover">
+                  <%= render partial: "table",
+                    locals: {requests: @supports.reject} %>
+                </table>
+                <div class="paginate">
+                  <%= will_paginate @supports.reject,
+                    theme: "twitter-bootstrap-3" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

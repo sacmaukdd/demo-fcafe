@@ -1,0 +1,53 @@
+<div id="main-container">
+  <div id="page-content">
+    <div class="block full">
+      <div class="block-title">
+        <h2><strong><%= t ".shop_types" %></strong></h2>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <button type = "button" class = "btn btn-info" data-toggle = "modal"
+            data-target = "#addShopType"><%= t "new_shop_type" %></button>
+          <hr>
+          <div class="table-responsive">
+            <table class="table table-vcenter table-striped">
+              <tr>
+                <th class="text-center"><%= t "index" %></th>
+                <th class="text-center"><%= t "name" %></th>
+                <th class="text-center"><%= t "action" %></th>
+              </tr>
+              <% @shop_types.each_with_index do |shop_type, index| %>
+                <tr>
+                  <td class="text-center"><%= index + Settings.one %></td>
+                  <td class="text-center"><%= shop_type.name %></td>
+                  <td class="text-center">
+                    <%= link_to edit_admin_shop_type_path(shop_type),
+                      class: "btn btn-default" do %>
+                      <i class="fa fa-pencil"><%= t "edit" %></i>
+                    <% end %>
+                    <%= link_to admin_shop_type_path(shop_type), method: :delete,
+                      data: {confirm: t("sure")}, class: "btn btn-danger" do %>
+                      <i class="fa fa-times"><%= t "delete" %></i>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+          <%= will_paginate %>
+          <div id = "addShopType" class = "modal fade" role = "dialog">
+            <div class = "modal-dialog modal-xs">
+              <div class = "modal-content">
+                <%= render "admin/shop_types/form_shop_type" %>
+                <div class = "modal-footer">
+                  <button type = button" class = "btn btn-default"
+                    data-dismiss = "modal"><%= t "close" %></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
